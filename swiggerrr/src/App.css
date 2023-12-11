@@ -45,3 +45,12 @@
   width:100% ;
  
 }
+
+.btn{
+  background-color: rgb(115, 115, 243);
+  color: white;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
