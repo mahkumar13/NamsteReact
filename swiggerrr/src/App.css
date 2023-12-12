@@ -12,6 +12,9 @@
   
   
 }
+body{
+  background-color: rgb(143, 173, 173);
+}
 
 .nav-items li {
   font-size: 24px;
@@ -23,6 +26,7 @@
 }
 .search{
   padding: 10px;
+ 
 }
 .res-container{
   display: flex;
@@ -48,9 +52,51 @@
 
 .btn{
   background-color: rgb(115, 115, 243);
+  
   color: white;
   width: 250px;
   height: 50px;
   text-align: center;
   cursor: pointer;
+}
+.shimmer-container{
+  display: flex;
+ 
+  
+}
+.shimmer-card{
+  margin: 10px;
+  height: 300px;
+  width: 2800px;
+  background-color: #f0f0f0;
+}
+.login{
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 5px rgb(0, 234, 255) solid;
+}
+.login:hover{
+  background-color: rgba(202, 141, 141, 0.783);
+}
+.filter{
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+}
+.search-box{
+  margin: 10px;
+  width: 250px;
+  height: 35px;
+  background-color: yellow;
+}
+.serach-btn{
+  width: 250px;
+  margin: 10px;
+  height: 40px;
+  border: 2px navy solid;
+  background-color: blueviolet;
+  color: rgba(255, 255, 255, 0.699);
 }
