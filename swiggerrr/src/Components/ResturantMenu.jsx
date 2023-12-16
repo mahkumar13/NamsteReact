@@ -1,32 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {useParams} from "react-router-dom"
 import Shimmer from './Shimmer';
-import { menu_api } from '../Utils/constants';
 import MenuList from './MenuList';
+import useResturantMenu from '../Utils/useResturantMenu';
 
 function ResturantMenu() {
-    const [resInfo,setResInfo]=useState(null)
-
     const {resid}=  useParams()
-    useEffect(()=>{
-        fetchData();
-    },[])
-    const fetchData= async ()=>{
-        const data = await fetch(menu_api+resid);
-        const json=  await data.json()
-        console.log(json.data)
-        setResInfo(json.data)
-       
-    }
+    const resInfo= useResturantMenu(resid)
     if(resInfo===null){
         return <Shimmer></Shimmer>
     }
     const {name,cuisines,costForTwoMessage,avgRating}= resInfo.cards[0].card.card.info
-    //const {menuItems} = resInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards[1].info.name
-    // console.log( resInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards[1].card.info.name)
-    // console.log(resInfo.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-   // console.log(resInfo.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]
-     // ?.card?.card?.itemCards[0]?.card?.info)
      const {itemCards}= resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
      console.log(itemCards)
   return (
@@ -45,50 +29,7 @@ function ResturantMenu() {
         </div>
         )}
       </div>
-     
-   
     </div>
   )
 }
-
 export default ResturantMenu
-
-
-// import { useEffect,useState } from "react"
-// import Shimmer from "./Shimmer"
-// import { useParams } from "react-router-dom"
-// import { MENU_API } from "./Utils/constants"
-// function Restuarant(){
-//     let [resinfo,setResInfo] = useState([])
-//     let {id} = useParams()
-//     useEffect(()=>async function fetchMenu(){
-//         try{
-//         let data = await fetch(MENU_API + id)
-//         let json = await data.json()
-//         console.log(json)
-//         setResInfo(json?.data)
-//         }
-//         catch(e){
-//             console.log(e)
-//         }
-//     },[])
-//     if(resinfo?.length ===0) return <Shimmer />
-//     else{
-//     const {name,areaName,avgRating,cuisines} = resinfo?.cards[0]?.card?.card?.info; 
-//     const menuItems= resinfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
-//     console.log(menuItems)
-//     return(
-//         <div>
-//             <h1>{name}</h1>
-//             <p>{areaName}    ★{avgRating}</p>
-//             <h4>{cuisines.join(',')}</h4>
-//             <div className="menu-items">
-//                 <h2>Recommanded </h2>
-//                 {menuItems.map((a)=><p key={a.card.info.id}>{a?.card?.info?.name} -    ₹{a.card.info.defaultPrice/100|| a.card.info.price/100}</p>)}
-//             </div>
-
-//         </div>
-//     )
-//     }
-// }
-// export default Restuarant
