@@ -60,8 +60,10 @@ body{
   text-align: center;
   cursor: pointer;
 }
-.shimmer-container{
+.shimmer{
   display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
 }
 .shimmer-card{
   margin: 10px;
@@ -134,6 +136,10 @@ body{
   margin: 5px;
   border: 3px solid rgb(67, 64, 65);
   background-color: rgb(234, 224, 226);
+}
+.user-card{
+  text-align: start;
+  color: black;
 }
 /* .menu-list li{
   text-decoration: none;
