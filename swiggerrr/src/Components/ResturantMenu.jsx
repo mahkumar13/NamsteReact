@@ -6,7 +6,7 @@ import useResturantMenu from '../Utils/useResturantMenu';
 
 function ResturantMenu() {
     const {resid}=  useParams()
-    const resInfo= useResturantMenu(resid)
+    const resInfo= useResturantMenu(resid)   // custom hook 
     if(resInfo===null){
         return <Shimmer></Shimmer>
     }

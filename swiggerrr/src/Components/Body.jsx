@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import resDataList from "../Utils/MockData"
 import ResturantCard from "./ResturantCard"
 import Shimmer from "./Shimmer";
 import {Link} from 'react-router-dom'
+import useOnlineStatus from "../Utils/useOnlineStatus";
 
 const Body = () => {
   const [ListofResturant, setListOfResturant] = useState([]);
@@ -20,9 +20,10 @@ const Body = () => {
     console.log(x)
     setListOfResturant(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     setFilterList(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
-
-
-
+  }
+  const onlineStatus= useOnlineStatus();
+  if(onlineStatus===false){
+    return <h1>Looks like you are offline </h1>
   }
   if (ListofResturant.length === 0) {
     return (
@@ -41,7 +42,6 @@ const Body = () => {
           <button className="serach-btn"
             onClick={() => {
               const filterList = ListofResturant.filter((res) =>
-
                 res.info.name.toLowerCase().includes(serachText.toLowerCase())
               )
               setFilterList(filterList)
