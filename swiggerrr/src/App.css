@@ -1,4 +1,4 @@
-.header{
+/* .header{
   display: flex;
   justify-content: space-between;
   border: 1.5px solid red;
@@ -123,9 +123,8 @@ body{
   height: 300px;
   width: 250px;
   border: 2px solid black;
-  background-color: #f0f0f0;
   background-color: rgb(237, 218, 222);
-
+transition: all 1s ease-in-out .5s;
 }
 .menu-item:hover{
   border: 5px solid red;
@@ -140,12 +139,4 @@ body{
 .user-card{
   text-align: start;
   color: black;
-}
-/* .menu-list li{
-  text-decoration: none;
-  list-style-type: none;
-}
-.menu-list-li{
-  margin: 5px;
-  border: 2px solid salmon;
 } */

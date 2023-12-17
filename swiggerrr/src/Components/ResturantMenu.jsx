@@ -15,14 +15,14 @@ function ResturantMenu() {
      console.log(itemCards)
   return (
     <div>
-    <div className='menu'>
-      <h1>{name}</h1>
+    <div className='text-center m-4  border bg-red-200 font-bold rounded-lg'>
+      <h1 className='items-center '>{name}</h1>
       <h2>{cuisines.join(", ")}</h2>
       <h2>{costForTwoMessage}    </h2>
       <h3>  Rating - {avgRating} ⭐</h3>
       <h2>Menu List</h2>
       </div>
-      <div className='menu-list' >
+      <div className='flex flex-wrap m-4 p-4' >
         {itemCards.map((item)=>
         <div key={item.card.info.id} className='menu-list'>
         <MenuList menuList={item}></MenuList>

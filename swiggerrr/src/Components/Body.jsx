@@ -16,10 +16,9 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6034084&lng=77.3782031&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
-    const x = json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants
-    console.log(x)
+   console.log(json.data)
     setListOfResturant(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
-    setFilterList(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
+     setFilterList(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
   }
   const onlineStatus= useOnlineStatus();
   if(onlineStatus===false){
@@ -32,14 +31,13 @@ const Body = () => {
   }
 
   return (
-    <div className="body">
-      <div className="filter">
-        <div className="search">Search
-
-          <input type="text" className="search-box" placeholder="" value={serachText}
+    <div className="bg-violet-100">
+      <div className="flex justify-between px-2 py-2">
+        <div className=" m-4 p-4">
+          <input type="text" className="border border-solid border-black rounded-lg" placeholder="" value={serachText}
             onChange={(e) => setSerachText(e.target.value)}
           ></input>
-          <button className="serach-btn"
+          <button className="px-4 py-2 bg-green-300 m-4 rounded-lg"
             onClick={() => {
               const filterList = ListofResturant.filter((res) =>
                 res.info.name.toLowerCase().includes(serachText.toLowerCase())
@@ -48,8 +46,8 @@ const Body = () => {
             }}
           > Serach</button>
         </div>
-
-        <button className="btn"
+        <div>
+        <button className="px-4 py-3 bg-green-300 m-4 rounded-lg items-center"
           onClick={() => {
             const filterList = ListofResturant.filter(
               (res) => res.info.avgRating > 4
@@ -60,10 +58,12 @@ const Body = () => {
           }
           }
         >TOP RATED Resturant</button>
+        </div>
+        
       </div>
-      <div className="res-container">
+      <div className="flex justify-between mx-3 flex-wrap rounded-lg">
         {FilterList.map(res =>(
-        <Link  className="link" key={res.info.id} to={"/resturant/"+res.info.id}>
+        <Link  className="flex" key={res.info.id} to={"/resturant/"+res.info.id}>
           <ResturantCard  resList={res} > </ResturantCard>
           </Link>
         ))}
