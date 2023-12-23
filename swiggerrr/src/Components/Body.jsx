@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import ResturantCard from "./ResturantCard"
+import ResturantCard, { withOpenTag } from "./ResturantCard"
 import Shimmer from "./Shimmer";
 import {Link} from 'react-router-dom'
 import useOnlineStatus from "../Utils/useOnlineStatus";
@@ -9,6 +9,7 @@ const Body = () => {
   const [TopRatedResturant, setTopRatedResturant] = useState([])
   const [FilterList, setFilterList] = useState([]);
   const [serachText, setSerachText] = useState("")
+  const ResturantCardOpen = withOpenTag(ResturantCard)
 
   useEffect(() => {
     fetchData();
@@ -64,7 +65,8 @@ const Body = () => {
       <div className="flex justify-between mx-3 flex-wrap rounded-lg">
         {FilterList.map(res =>(
         <Link  className="flex" key={res.info.id} to={"/resturant/"+res.info.id}>
-          <ResturantCard  resList={res} > </ResturantCard>
+          {res.info.isOpen ? (<ResturantCardOpen resList={res}></ResturantCardOpen>):
+          (<ResturantCard  resList={res} > </ResturantCard>)}
           </Link>
         ))}
       </div>

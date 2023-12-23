@@ -17,6 +17,17 @@ const ResturantCard= (props)=>{
       </div>
     )
   }
+    // hIgher Order Component 
+  export  const withOpenTag = (ResturantCard)=>{
+    return (props)=>{
+      return (
+        <div>
+        <label className='absolute m-2 p-2 rounded-lg bg-black text-white' > Open  </label>
+        <ResturantCard {...props}></ResturantCard>
+        </div>
+      )
+    }
+  }
 
   
   export default ResturantCard
