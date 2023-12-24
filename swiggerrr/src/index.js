@@ -9,6 +9,7 @@ import ContactUs from './Components/ContactUs';
 import PageNotFound from './Components/PageNotFound';
 import Body from './Components/Body';
 import ResturantMenu from './Components/ResturantMenu';
+import CartPage from './Components/CartPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const appRouter= createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const appRouter= createBrowserRouter([
      {
       path:"/contact",
       element:<ContactUs></ContactUs>
+    },
+    {
+      path:"/cart",
+      element:<CartPage></CartPage>
     },
     {
       path:"/resturant/:resid",

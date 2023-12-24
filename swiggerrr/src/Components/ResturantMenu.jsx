@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useParams} from "react-router-dom"
 import Shimmer from './Shimmer';
 import MenuList from './MenuList';
@@ -7,6 +7,7 @@ import ResturantCategory from './ResturantCategory';
 
 function ResturantMenu() {
     const {resid}=  useParams()
+    const [showIndex,setShowIndex]=useState(null)
     const resInfo= useResturantMenu(resid)   // custom hook 
     if(resInfo===null){
         return <Shimmer></Shimmer>
@@ -25,8 +26,11 @@ function ResturantMenu() {
       <h2>{costForTwoMessage}    </h2>
       <h3>  Rating - {avgRating} ⭐</h3>
       </div>
-      {categories.map((c)=>(
-        <ResturantCategory data={c}></ResturantCategory>
+      {categories.map((c,index)=>(
+        <ResturantCategory  key={c.card.card.title} data={c}
+          showItem={index===showIndex?true:false}
+          setShowIndex ={()=>setShowIndex(index)}
+        ></ResturantCategory>
       ))}
      
       {/* <div className='flex flex-wrap m-4 p-4' >

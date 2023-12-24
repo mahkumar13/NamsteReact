@@ -1,8 +1,15 @@
+import { useDispatch } from "react-redux"
 import { CDN_URL } from "../Utils/constants"
+import { addItems } from "../Utils/cardSlice"
 
 const ItemList= ({item})=>{
     console.log(CDN_URL+"mwzbjlbf4lg7t1cujphg")
+    const dispatch = useDispatch()
 console.log(item)
+const handleAddItem = (item)=>{
+    dispatch(addItems(item))
+    console.log(dispatch)
+}
 return(
     <div>
         {item.map((item)=>(
@@ -13,12 +20,14 @@ return(
            <div className="py-2 flex justify-between ">
             <span className=" font-bold text-3xl  text-red-600">{item.card.info.name}</span>  
            </div>
-           <h1 className="font-bold text-3xl m-4 text-pink-600"> ₹{item.card.info.price/100 || item.card.info.defaultPrice/100}</h1>
+           <h1 className="font-bold text-3xl m-4 text-pink-600"> ₹{item.card.info.price/100 || item.card.info.defaultPrice/100} for two</h1>
            <p className="text-xl font-bold" >{item.card.info.description}</p>
            </div>
          <div className="w-3/12 p-4">
             <div className="absolute">
-            <button className="p-2 m-2 bg-green-300 shadow-lg rounded-lg "> Add +</button>
+            <button className="p-2 m-2 bg-green-300 shadow-lg rounded-lg "
+             onClick={()=>handleAddItem(item)}
+            > Add +</button>
              </div>
            <img src={ CDN_URL+ item.card?.info?.imageId||CDN_URL+"mwzbjlbf4lg7t1cujphg" } alt=""></img>
            
