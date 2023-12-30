@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Login from './Login'
 import Browse from './Browse'
-import {BrowserRouter,createBrowserRouter,RouterProvider} from 'react-router-dom'
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 const appRouter= createBrowserRouter([
     {
        path:"/",
@@ -16,7 +16,6 @@ const Body = () => {
   return (
     <div>
      <RouterProvider router={appRouter}>
-
      </RouterProvider>
     </div>
   )
