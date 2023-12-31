@@ -7,7 +7,7 @@ const VideoBackGround = ({id}) => {
      //const [videoKey,setVideoKey]=useState(null)  // using usestate 
      const videoKey = useSelector(store=>store.movies?.trailerVideo?.key)  // using redux toolkit 
     const moviesTrailers= useMoviesTrailers(id)
-    console.log(moviesTrailers)
+ 
   return (
     <div className='w-screen'>
       <iframe 
