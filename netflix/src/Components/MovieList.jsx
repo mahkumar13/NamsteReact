@@ -1,4 +1,5 @@
 import React from 'react'
+import{Link} from 'react-router-dom'
 import MovieCard from './MovieCard'
 
 function MovieList({title,movies}) {
@@ -10,7 +11,9 @@ function MovieList({title,movies}) {
         <div className='flex'>
             {
             movies?.map(movie=>(
+            
             <MovieCard key={movie?.id} posterPath={movie?.poster_path}></MovieCard>
+          
             ))} 
         </div>
       </div>

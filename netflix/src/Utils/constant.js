@@ -6,6 +6,7 @@ export const NOW_PLAYINGMOVIESAPI= "https://api.themoviedb.org/3/movie/now_playi
 export const POPULARMOVIEAPI="https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
 export const TOPRATED_MOVIES="https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
 export const UPCOMING_MOVIE_API= "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1"
+export const SERACH_MOVIE_API ="https://api.themoviedb.org/3/search/movie?query="
 export const API_OPTION = {
     method: 'GET',
     headers: {
@@ -21,3 +22,5 @@ export const API_OPTION = {
     {identifier:"hindi",name:"Hindi "},
     {identifier:"spanish",name:"Spanish  "}
   ]
+
+  export const OPEN_API_KEY = "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"
