@@ -11,9 +11,9 @@ function MovieList({title,movies}) {
         <div className='flex'>
             {
             movies?.map(movie=>(
-            
-            <MovieCard key={movie?.id} posterPath={movie?.poster_path}></MovieCard>
-          
+            <Link key={movie?.id} to={"/watch?v="+movie.id}>
+            <MovieCard  posterPath={movie?.poster_path}></MovieCard>
+          </Link>
             ))} 
         </div>
       </div>

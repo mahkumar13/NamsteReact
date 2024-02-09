@@ -8,6 +8,7 @@ import { NETFLIX_LOGO, SUPPORTED_LANGUAGE } from '../Utils/constant';
 import { toggleGptSerachView } from '../Utils/gptSerachSlice';
 import lang from '../Utils/languageConstants';
 import { changeLanguage } from '../Utils/appConfigSlice';
+import image from '../../src/imge/applogo.jpg'
 const Header = () => {
   const navigate= useNavigate()
   const user= useSelector(store=>store.user)
@@ -51,8 +52,9 @@ const Header = () => {
   }
   return (
     <div className='absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between'>
-      <img  className='w-44'
-       src={NETFLIX_LOGO} alt='netlix logo'>
+      <img  className='w-44 bg-black'
+      src={image} alt=''
+      >
        </img>
        {user &&(
        <div className='flex '>

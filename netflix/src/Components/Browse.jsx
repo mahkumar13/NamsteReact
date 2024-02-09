@@ -8,6 +8,7 @@ import useTopRatedMovies from '../hook/UseTopRatedMovies'
 import useUpcomingMovie from '../hook/useUpcomingMovie'
 import GPTSearch from './GPTSearch'
 import { useSelector } from 'react-redux'
+import { Outlet } from 'react-router-dom'
 const Browse = () => {
  const nowPlayingMovies = useNowPlayingMovies() // custom hook calling 
  const popularMovie= usePopularMovie()
@@ -21,6 +22,7 @@ const Browse = () => {
         showGptSerach  ? (<GPTSearch></GPTSearch>):
       <>
        <MainContainer></MainContainer>
+       <Outlet></Outlet>
       <SecondaryContainer></SecondaryContainer>
       </>
     }

@@ -6,6 +6,7 @@ import { auth } from '../Utils/firebase';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../Utils/userSlice';
 import { BACKGROUND_PHOTO, PHOTO_URL } from '../Utils/constant';
+import photoURL from '../../src/imge/usericon.jpg'
 
 const Login = () => {
     const [isSignInForm,setIsSignInForm]= useState(true)
@@ -30,7 +31,7 @@ const Login = () => {
          .then((userCredential) => {  
                const user = userCredential.user;
                updateProfile(user, {
-                displayName:name.current.value , photoURL: PHOTO_URL
+                displayName:name.current.value , photoURL: photoURL
               }).then(() => {
                 // Profile updated!
                 // ...
